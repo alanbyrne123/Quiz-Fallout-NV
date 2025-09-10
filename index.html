@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fallout: New Vegas Quiz - Vault-Tec Approved</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="vault-boy">
+                <div class="vault-boy-head"></div>
+                <div class="vault-boy-body"></div>
+            </div>
+            <h1 class="title">VAULT-TEC QUIZ SYSTEM</h1>
+            <p class="subtitle">Fallout: New Vegas Knowledge Assessment</p>
+        </header>
+
+        <!-- Main Quiz Container -->
+        <main class="quiz-container">
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen active">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn-close"></span>
+                            <span class="btn-minimize"></span>
+                            <span class="btn-maximize"></span>
+                        </div>
+                        <span class="terminal-title">Vault-Tec Quiz Terminal v2.0</span>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="ascii-art">
+                            <pre>
+    ╔══════════════════════════════════════╗
+    ║        FALLOUT: NEW VEGAS            ║
+    ║           QUIZ SYSTEM                ║
+    ╚══════════════════════════════════════╝
+                            </pre>
+                        </div>
+                        <p class="welcome-text">
+                            Welcome, Vault Dweller! This terminal will assess your knowledge 
+                            of the Mojave Wasteland and the events surrounding New Vegas.
+                        </p>
+                        <p class="instructions">
+                            The quiz contains 15 questions covering various aspects of the game 
+                            including locations, characters, factions, and lore. Choose your answers 
+                            carefully - there's no going back once you've made your selection.
+                        </p>
+                        <div class="difficulty-selector">
+                            <h3>Select Difficulty:</h3>
+                            <div class="difficulty-options">
+                                <button class="difficulty-btn" data-difficulty="easy">Easy (5 questions)</button>
+                                <button class="difficulty-btn" data-difficulty="medium">Medium (10 questions)</button>
+                                <button class="difficulty-btn" data-difficulty="hard">Hard (15 questions)</button>
+                            </div>
+                        </div>
+                        <button id="start-quiz" class="btn-primary">BEGIN QUIZ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="screen">
+                <div class="quiz-header">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="quiz-info">
+                        <span class="question-counter">Question <span id="current-question">1</span> of <span id="total-questions">15</span></span>
+                        <span class="score">Score: <span id="current-score">0</span></span>
+                    </div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-card">
+                        <h2 id="question-text">Loading question...</h2>
+                        <div class="options-container" id="options-container">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                        <div class="question-feedback" id="question-feedback"></div>
+                    </div>
+                </div>
+
+                <div class="quiz-controls">
+                    <button id="next-question" class="btn-secondary" disabled>NEXT QUESTION</button>
+                    <button id="quit-quiz" class="btn-danger">QUIT QUIZ</button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <div class="results-container">
+                    <div class="results-header">
+                        <h2>QUIZ COMPLETE</h2>
+                        <div class="vault-boy-result">
+                            <div class="vault-boy-head"></div>
+                            <div class="vault-boy-body"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="score-display">
+                        <div class="final-score">
+                            <span class="score-number" id="final-score">0</span>
+                            <span class="score-total">/ <span id="total-score">15</span></span>
+                        </div>
+                        <div class="percentage" id="percentage">0%</div>
+                    </div>
+
+                    <div class="result-message" id="result-message">
+                        <!-- Result message will be populated by JavaScript -->
+                    </div>
+
+                    <div class="detailed-results">
+                        <h3>Quiz Summary</h3>
+                        <div class="result-stats">
+                            <div class="stat">
+                                <span class="stat-label">Correct Answers:</span>
+                                <span class="stat-value" id="correct-answers">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Incorrect Answers:</span>
+                                <span class="stat-value" id="incorrect-answers">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Accuracy:</span>
+                                <span class="stat-value" id="accuracy">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-actions">
+                        <button id="retake-quiz" class="btn-primary">TAKE QUIZ AGAIN</button>
+                        <button id="change-difficulty" class="btn-secondary">CHANGE DIFFICULTY</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Vault-Tec Industries - "Better Living Through Technology"</p>
+            <p>© 2281 - All rights reserved</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
